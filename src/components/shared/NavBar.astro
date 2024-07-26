@@ -3,6 +3,7 @@ const links = [
   { href: "/", text: "Listado" },
   { href: "/pokemons/1", text: "Paginado" },
   { href: "/favorites", text: "Favoritos" },
+  { href: "/islands", text: "Islas" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -38,7 +39,7 @@ const currentPath = Astro.url.pathname;
         {currentPath === href ? (
           <div 
           transition:name="menu-line-border"
-          class="border-b-2 border-blue-500 mx-5"></div>
+          class="border-b-2 border-blue-500 mx-1 lg:mx-5"></div>
         ) : (
           <div
           class="border-b-2 border-transparent"></div>

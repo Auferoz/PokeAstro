@@ -1,0 +1,22 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Title from "@components/shared/Title.astro";
+import { Counter } from "@components/Counter.tsx";
+
+const counterValue = 20;
+---
+
+<MainLayout title="Pokémons Islas">
+  <Title>Islas</Title>
+
+  <div class="h-[2000px] bg-red-500 opacity-40"></div>
+
+  <Counter
+    client:visible
+    initValue={counterValue}
+    transition:persist="counter"
+    transiton:persist-props
+  >
+    <Title> Counter Island </Title>
+  </Counter>
+</MainLayout>

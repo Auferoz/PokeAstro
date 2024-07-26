@@ -1,0 +1,49 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { siteInfo } from "src/consts/site-info";
+
+import NavBar from "@components/pokemons/shared/NavBar.astro";
+
+interface Props {
+  title?: string;
+  image?: string;
+  description?: string;
+}
+
+siteInfo;
+
+const {
+  title = siteInfo.title,
+  description = siteInfo.desciption,
+  image,
+} = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+	<!-- SEO  -->
+	<meta name="author" content={'Alfredo Saavedra'} />
+	<meta name="companie" content={'BurstNight'} />
+	<meta name="description" content={description} />
+
+	<!-- OG Metatags  -->
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={image} />
+
+
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body class="bg-slate-800 text-slate-100">
+    <NavBar />
+    <main class="mt-10 px-10 xl:px-0 m-auto max-w-7xl">
+      <slot />
+    </main>
+  </body>
+</html>
